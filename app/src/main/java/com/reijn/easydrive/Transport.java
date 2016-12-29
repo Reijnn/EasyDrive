@@ -5,7 +5,7 @@ package com.reijn.easydrive;
  */
 
 public class Transport {
-    String  id, transDate, transCompany, transPlate, transFrom, transToo;
+    private String id, transDate, transCompany, transNr, transPlate, transFrom, transToo;
 
     public Transport() {
     }
@@ -34,6 +34,14 @@ public class Transport {
 
     public void setTransCompany(String transCompany) {
         this.transCompany = transCompany;
+    }
+
+    public String getTransNr() {
+        return transNr;
+    }
+
+    public void setTransNr(String transNr) {
+        this.transNr = transNr;
     }
 
     public String getTransPlate() {
