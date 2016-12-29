@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "528892304935",
+    "firebase_url": "https://easydrive-6027f.firebaseio.com",
+    "project_id": "easydrive-6027f",
+    "storage_bucket": "easydrive-6027f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:528892304935:android:02e38a095be2f38b",
+        "android_client_info": {
+          "package_name": "com.reijn.easydrive"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "528892304935-eroq735rohpaobc3srfep5i3f0pd24mn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.reijn.easydrive",
+            "certificate_hash": "B3CD9F45BA92C5B5017E97A6B225EFDEC87D5BB3"
+          }
+        },
+        {
+          "client_id": "528892304935-gk8mp22q842r2dpro4dk7j4gump5kh06.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNwjXism_M4UT_Ru4ehj5LVI5iSZOxpNk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "528892304935-gk8mp22q842r2dpro4dk7j4gump5kh06.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
