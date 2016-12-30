@@ -82,6 +82,51 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void setup() {
+        mTransportReference = mFirebaseDatabase.getReference().child("transports")
+                .child(MainActivity.firebaseUser.getUid());
+        adapter = new FirebaseListAdapter<Transport>(this, Transport.class,
+                android.R.layout.two_line_list_item, mTransportReference) {
+            @Override
+            protected void populateView(View v, Transport model, int position) {
+                ((TextView) v.findViewById(android.R.id.text1)).setText(model.getTransCompany() +
+                        ", " + model.getTransDate());
+                ((TextView) v.findViewById(android.R.id.text2)).setText(model.getTransPlate());
+            }
+        };
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
+
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            public boolean onItemLongClick(AdapterView parent, final View view, final int position, final long id) {
+                new AlertDialog.Builder(MainActivity.this)
+                        .setMessage("Wat wilt u doen?")
+                        .setPositiveButton("Verwijderen", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                Transport t = (Transport) adapter.getItem(position);
+                                mTransportReference.child(t.getId()).removeValue();
+                            }
+                        })
+                        .setNegativeButton("Aanpassen", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent(MainActivity.this, NewActivity.class);
+                                Transport t = (Transport) adapter.getItem(position);
+                                intent.putExtra("id", t.getId());
+                                startActivity(intent);
+                            }
+                        })
+                        .show();
+                return true;
+            }
+        });
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -129,49 +174,5 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         adapter.cleanup();
-    }
-
-    private void setup() {
-        mTransportReference = mFirebaseDatabase.getReference().child("transports")
-                .child(MainActivity.firebaseUser.getUid());
-        adapter = new FirebaseListAdapter<Transport>(this, Transport.class,
-                android.R.layout.two_line_list_item, mTransportReference) {
-            @Override
-            protected void populateView(View v, Transport model, int position) {
-                ((TextView) v.findViewById(android.R.id.text1)).setText(model.getTransCompany() + ", " + model.getTransDate());
-                ((TextView) v.findViewById(android.R.id.text2)).setText(model.getTransPlate());
-            }
-        };
-        listView.setAdapter(adapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-        });
-
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            public boolean onItemLongClick(AdapterView parent, final View view, final int position, final long id) {
-                new AlertDialog.Builder(MainActivity.this)
-                        .setMessage("Wat wilt u doen?")
-                        .setPositiveButton("Verwijderen", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                Transport t = (Transport) adapter.getItem(position);
-                                mTransportReference.child(t.getId()).removeValue();
-                            }
-                        })
-                        .setNegativeButton("Aanpassen", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                Intent intent = new Intent(MainActivity.this, NewActivity.class);
-                                Transport t = (Transport) adapter.getItem(position);
-                                intent.putExtra("id", t.getId());
-                                startActivity(intent);
-                            }
-                        })
-                        .show();
-                return true;
-            }
-        });
     }
 }
