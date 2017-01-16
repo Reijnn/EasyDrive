@@ -13,13 +13,9 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
-import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.reijn.easydrive.Fragments.ExtraFragment;
 import com.reijn.easydrive.Fragments.SendFragment;
 import com.reijn.easydrive.Fragments.TimeFragment;

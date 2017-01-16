@@ -15,7 +15,7 @@ public class Transport implements Serializable {
     private String cardUsed, fuelCosts, fuelPic, carwashCosts, carwashPic, cleaningCosts, cleaningPicture, ovCosts, ovPic, otherCosts, otherPic, notes,
             delay, delayLocation, delayTime;
 
-    public Transport() {
+    Transport() {
     }
 
     public String getId() {
@@ -30,7 +30,7 @@ public class Transport implements Serializable {
         return date;
     }
 
-    public void setDate(String date) {
+    void setDate(String date) {
         this.date = date;
     }
 
@@ -38,15 +38,15 @@ public class Transport implements Serializable {
         return company;
     }
 
-    public void setCompany(String company) {
+    void setCompany(String company) {
         this.company = company;
     }
 
-    public String getTransportNumber() {
+    String getTransportNumber() {
         return transportNumber;
     }
 
-    public void setTransportNumber(String transportNumber) {
+    void setTransportNumber(String transportNumber) {
         this.transportNumber = transportNumber;
     }
 
@@ -54,23 +54,23 @@ public class Transport implements Serializable {
         return plate;
     }
 
-    public void setPlate(String plate) {
+    void setPlate(String plate) {
         this.plate = plate;
     }
 
-    public String getOrigin() {
+    String getOrigin() {
         return origin;
     }
 
-    public void setOrigin(String origin) {
+    void setOrigin(String origin) {
         this.origin = origin;
     }
 
-    public String getDestination() {
+    String getDestination() {
         return destination;
     }
 
-    public void setDestination(String destination) {
+    void setDestination(String destination) {
         this.destination = destination;
     }
 
@@ -78,7 +78,7 @@ public class Transport implements Serializable {
         return startTime;
     }
 
-    public void setStartTime(String startTime) {
+    void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
@@ -86,7 +86,7 @@ public class Transport implements Serializable {
         return startAddress;
     }
 
-    public void setStartAddress(String startAddress) {
+    void setStartAddress(String startAddress) {
         this.startAddress = startAddress;
     }
 
@@ -94,7 +94,7 @@ public class Transport implements Serializable {
         return arrivalOrigin;
     }
 
-    public void setArrivalOrigin(String arrivalOrigin) {
+    void setArrivalOrigin(String arrivalOrigin) {
         this.arrivalOrigin = arrivalOrigin;
     }
 
@@ -102,7 +102,7 @@ public class Transport implements Serializable {
         return departureOrigin;
     }
 
-    public void setDepartureOrigin(String departureOrigin) {
+    void setDepartureOrigin(String departureOrigin) {
         this.departureOrigin = departureOrigin;
     }
 
@@ -110,7 +110,7 @@ public class Transport implements Serializable {
         return arrivalDestination;
     }
 
-    public void setArrivalDestination(String arrivalDestination) {
+    void setArrivalDestination(String arrivalDestination) {
         this.arrivalDestination = arrivalDestination;
     }
 
@@ -118,7 +118,7 @@ public class Transport implements Serializable {
         return keysTime;
     }
 
-    public void setKeysTime(String keysTime) {
+    void setKeysTime(String keysTime) {
         this.keysTime = keysTime;
     }
 
@@ -126,7 +126,7 @@ public class Transport implements Serializable {
         return keysToo;
     }
 
-    public void setKeysToo(String keysToo) {
+    void setKeysToo(String keysToo) {
         this.keysToo = keysToo;
     }
 
@@ -134,7 +134,7 @@ public class Transport implements Serializable {
         return secondTransport;
     }
 
-    public void setSecondTransport(String secondTransport) {
+    void setSecondTransport(String secondTransport) {
         this.secondTransport = secondTransport;
     }
 
@@ -142,7 +142,7 @@ public class Transport implements Serializable {
         return finalAddress;
     }
 
-    public void setFinalAddress(String finalAddress) {
+    void setFinalAddress(String finalAddress) {
         this.finalAddress = finalAddress;
     }
 
@@ -150,7 +150,7 @@ public class Transport implements Serializable {
         return finalStation;
     }
 
-    public void setFinalStation(String finalStation) {
+    void setFinalStation(String finalStation) {
         this.finalStation = finalStation;
     }
 
@@ -158,7 +158,7 @@ public class Transport implements Serializable {
         return finalTime;
     }
 
-    public void setFinalTime(String finalTime) {
+    void setFinalTime(String finalTime) {
         this.finalTime = finalTime;
     }
 
@@ -166,7 +166,7 @@ public class Transport implements Serializable {
         return cardUsed;
     }
 
-    public void setCardUsed(String cardUsed) {
+    void setCardUsed(String cardUsed) {
         this.cardUsed = cardUsed;
     }
 
@@ -174,7 +174,7 @@ public class Transport implements Serializable {
         return fuelCosts;
     }
 
-    public void setFuelCosts(String fuelCosts) {
+    void setFuelCosts(String fuelCosts) {
         this.fuelCosts = fuelCosts;
     }
 
@@ -190,7 +190,7 @@ public class Transport implements Serializable {
         return carwashCosts;
     }
 
-    public void setCarwashCosts(String carwashCosts) {
+    void setCarwashCosts(String carwashCosts) {
         this.carwashCosts = carwashCosts;
     }
 
@@ -206,7 +206,7 @@ public class Transport implements Serializable {
         return cleaningCosts;
     }
 
-    public void setCleaningCosts(String cleaningCosts) {
+    void setCleaningCosts(String cleaningCosts) {
         this.cleaningCosts = cleaningCosts;
     }
 
@@ -222,7 +222,7 @@ public class Transport implements Serializable {
         return ovCosts;
     }
 
-    public void setOvCosts(String ovCosts) {
+    void setOvCosts(String ovCosts) {
         this.ovCosts = ovCosts;
     }
 
@@ -238,7 +238,7 @@ public class Transport implements Serializable {
         return otherCosts;
     }
 
-    public void setOtherCosts(String otherCosts) {
+    void setOtherCosts(String otherCosts) {
         this.otherCosts = otherCosts;
     }
 
@@ -254,7 +254,7 @@ public class Transport implements Serializable {
         return notes;
     }
 
-    public void setNotes(String notes) {
+    void setNotes(String notes) {
         this.notes = notes;
     }
 
@@ -262,7 +262,7 @@ public class Transport implements Serializable {
         return delay;
     }
 
-    public void setDelay(String delay) {
+    void setDelay(String delay) {
         this.delay = delay;
     }
 
@@ -270,7 +270,7 @@ public class Transport implements Serializable {
         return delayLocation;
     }
 
-    public void setDelayLocation(String delayLocation) {
+    void setDelayLocation(String delayLocation) {
         this.delayLocation = delayLocation;
     }
 
@@ -278,7 +278,7 @@ public class Transport implements Serializable {
         return delayTime;
     }
 
-    public void setDelayTime(String delayTime) {
+    void setDelayTime(String delayTime) {
         this.delayTime = delayTime;
     }
 }

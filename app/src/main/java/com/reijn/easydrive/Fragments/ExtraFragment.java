@@ -39,8 +39,6 @@ import static android.R.layout.simple_spinner_item;
 import static android.app.Activity.RESULT_OK;
 
 public class ExtraFragment extends PermissionFragment {
-    @BindView(R.id.textView2)
-    TextView textView2;
     @BindView(R.id.tvFuelCosts)
     TextInputEditText tvFuelCosts;
     @BindView(R.id.btFuelCosts)
