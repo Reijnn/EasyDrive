@@ -89,35 +89,38 @@ public class MainActivity extends AppCompatActivity {
                 android.R.layout.two_line_list_item, mTransportReference) {
             @Override
             protected void populateView(View v, Transport model, int position) {
-                ((TextView) v.findViewById(android.R.id.text1)).setText(model.getTransCompany() +
-                        ", " + model.getTransDate());
-                ((TextView) v.findViewById(android.R.id.text2)).setText(model.getTransPlate());
+                ((TextView) v.findViewById(android.R.id.text1)).setText(model.getCompany() +
+                        ", " + model.getDate());
+                ((TextView) v.findViewById(android.R.id.text2)).setText(model.getPlate());
             }
         };
+        listView.setEmptyView(findViewById(R.id.empty_list_item));
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                Intent intent = new Intent(MainActivity.this, TabActivity.class);
+                Transport t = (Transport) adapter.getItem(position);
+                intent.putExtra("transport", t);
+                startActivity(intent);
             }
         });
 
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             public boolean onItemLongClick(AdapterView parent, final View view, final int position, final long id) {
+                final Transport t = (Transport) adapter.getItem(position);
                 new AlertDialog.Builder(MainActivity.this)
                         .setMessage("Wat wilt u doen?")
                         .setPositiveButton("Verwijderen", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                Transport t = (Transport) adapter.getItem(position);
                                 mTransportReference.child(t.getId()).removeValue();
                             }
                         })
                         .setNegativeButton("Aanpassen", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 Intent intent = new Intent(MainActivity.this, NewActivity.class);
-                                Transport t = (Transport) adapter.getItem(position);
-                                intent.putExtra("id", t.getId());
+                                intent.putExtra("transport", t);
                                 startActivity(intent);
                             }
                         })
@@ -129,21 +132,15 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
             case R.id.action_settings:
                 return true;
-            case R.id.action_logout:
-                AuthUI.getInstance().signOut(this);
         }
         return super.onOptionsItemSelected(item);
     }

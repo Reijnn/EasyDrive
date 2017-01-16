@@ -1,0 +1,264 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.reijn.easydrive.Fragments.ExtraFragment">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text=" Pas gebruikt voor onkosten"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tvFuelCostsWrap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/tvFuelCosts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:ems="10"
+            android:hint="Onkosten brandstof"
+            android:inputType="numberDecimal" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/btFuelCosts"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tvFuelCostsWrap"
+        android:layout_toEndOf="@+id/tvFuelCostsWrap"
+        android:text="Foto" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tvCarwashCostsWrap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvFuelCostsWrap">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/tvCarwashCosts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:ems="10"
+            android:hint="Onkosten wasstraat"
+            android:inputType="numberDecimal" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/btCarwashCosts"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tvCarwashCostsWrap"
+        android:layout_toEndOf="@+id/tvFuelCostsWrap"
+        android:text="Foto" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tvCleaningCostsWrap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvCarwashCostsWrap">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/tvCleaningCosts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:ems="10"
+            android:hint="Onkosten stofzuigen"
+            android:inputType="numberDecimal" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/btCleaningCosts"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tvOvCostsWrap"
+        android:layout_toEndOf="@+id/tvCarwashCostsWrap"
+        android:text="Foto" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tvOvCostsWrap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvCleaningCostsWrap">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/tvOvCosts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:ems="10"
+            android:hint="Onkosten trein/bus/tram"
+            android:inputType="numberDecimal" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/btOvCosts"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tvOvCostsWrap"
+        android:layout_toEndOf="@+id/tvCleaningCostsWrap"
+        android:text="Foto" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tvOtherCostsWrap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvOvCostsWrap">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/tvOtherCosts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:ems="10"
+            android:hint="Onkosten anders"
+            android:inputType="numberDecimal" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/btOtherCosts"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tvOtherCostsWrap"
+        android:layout_toEndOf="@+id/tvOvCostsWrap"
+        android:text="foto" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tvNotesWrap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvOtherCostsWrap">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/tvNotes"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:hint="Opmerkingen"
+            android:maxLines="2" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignParentEnd="true"
+        android:textAlignment="viewEnd" />
+
+    <Switch
+        android:id="@+id/swVertraging"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/tvNotesWrap"
+        android:checked="false"
+        android:text="Vertraging gehad?" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tvDelayLocationWrap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvNotesWrap">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/tvDelayLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:ems="10"
+            android:hint="Waar"
+            android:visibility="gone" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tvDelayTimeWrap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tvDelayLocationWrap">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/tvDelayTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:focusableInTouchMode="false"
+            android:hint="Tijdstip"
+            android:inputType="time"
+            android:visibility="gone" />
+    </android.support.design.widget.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/ivFuelCosts"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_above="@+id/tvCarwashCostsWrap"
+        android:layout_alignEnd="@+id/tvNotesWrap"
+        android:contentDescription="image"
+        android:visibility="gone"
+        app:srcCompat="@color/cardview_light_background" />
+
+    <ImageView
+        android:id="@+id/ivCarwashCosts"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_above="@+id/tvCleaningCostsWrap"
+        android:layout_alignEnd="@+id/tvNotesWrap"
+        android:contentDescription="image"
+        android:visibility="gone"
+        app:srcCompat="@color/cardview_light_background" />
+
+    <ImageView
+        android:id="@+id/ivCleaningCosts"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_above="@+id/tvOvCostsWrap"
+        android:layout_alignEnd="@+id/tvNotesWrap"
+        android:contentDescription="image"
+        android:visibility="gone"
+        app:srcCompat="@color/cardview_light_background" />
+
+    <ImageView
+        android:id="@+id/ivOvCosts"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_above="@+id/tvOtherCostsWrap"
+        android:layout_alignEnd="@+id/tvNotesWrap"
+        android:contentDescription="image"
+        android:visibility="gone"
+        app:srcCompat="@color/cardview_light_background" />
+
+    <ImageView
+        android:id="@+id/ivOtherCosts"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_above="@+id/tvNotesWrap"
+        android:layout_alignEnd="@+id/tvNotesWrap"
+        android:contentDescription="image"
+        android:visibility="gone"
+        app:srcCompat="@color/cardview_light_background" />
+
+</RelativeLayout>

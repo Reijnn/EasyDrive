@@ -36,13 +36,13 @@
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/tvLeaseWrap"
+        android:id="@+id/tvCompanyWrap"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvDateWrap">
 
         <EditText
-            android:id="@+id/tvLease"
+            android:id="@+id/tvCompany"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Leasemaatschappij"
@@ -52,15 +52,15 @@
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/tvNrWrap"
+        android:id="@+id/tvTransportNumberWrap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/tvLeaseWrap"
-        android:layout_toStartOf="@+id/tvNaarWrap">
+        android:layout_below="@+id/tvCompanyWrap"
+        android:layout_toStartOf="@+id/tvDestinationWrap">
 
         <EditText
-            android:id="@+id/tvNr"
+            android:id="@+id/tvTransportNumber"
             android:layout_width="175dp"
             android:layout_height="wrap_content"
             android:hint="Transportnr."
@@ -74,7 +74,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/tvLeaseWrap">
+        android:layout_below="@+id/tvCompanyWrap">
 
         <EditText
             android:id="@+id/tvPlate"
@@ -87,15 +87,15 @@
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/tvVanWrap"
+        android:id="@+id/tvOriginWrap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/tvPlateWrap"
-        android:layout_toStartOf="@+id/tvNaarWrap">
+        android:layout_toStartOf="@+id/tvDestinationWrap">
 
         <EditText
-            android:id="@+id/tvVan"
+            android:id="@+id/tvOrigin"
             android:layout_width="175dp"
             android:layout_height="wrap_content"
             android:hint="Transporteren van"
@@ -105,14 +105,14 @@
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/tvNaarWrap"
+        android:id="@+id/tvDestinationWrap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/tvPlateWrap">
 
         <EditText
-            android:id="@+id/tvNaar"
+            android:id="@+id/tvDestination"
             android:layout_width="175dp"
             android:layout_height="wrap_content"
             android:hint="Transporteren naar"

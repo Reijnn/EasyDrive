@@ -4,4 +4,11 @@
     <string name="action_logout">Sign out</string>
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
     <string name="opslaan">Opslaan</string>
+    <string name="title_activity_details">Details</string>
+    <string name="title_activity_new">Nieuwe rit toevoegen</string>
+    <string name="naam_leasemaatschappij"><html><b>Naam leasemaatschappij: </b></html></string>
+    <string name="ritdatum"><html><b>Ritdatum: </b></html></string>
+    <string name="naam_chauffeur"><html><b>Naam chauffeur: </b></html></string>
+    <string name="emailadres_chauffeur"><html><b>Emailadres chauffeur: </b></html></string>
+    <string name="woonplaats_chauffeur"><html><b>Woonplaats chauffeur: </b></html></string>
 </resources>

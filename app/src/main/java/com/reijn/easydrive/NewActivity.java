@@ -31,25 +31,25 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class NewActivity extends AppCompatActivity implements Validator.ValidationListener {
-    Calendar calendar = Calendar.getInstance();
-
+    @BindView(R.id.adView)
+    AdView adView;
     @BindView(R.id.tvDate)
     @Pattern(message = "Voer een geldige datum in!", regex = "^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)(?:0?[1,3-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$")
-    EditText tvTransDate;
+    EditText tvDate;
+    @BindView(R.id.tvCompany)
+    @Length(min = 2, message = "Dit veld is verplicht")
+    EditText tvCompany;
+    @BindView(R.id.tvTransportNumber)
+    EditText tvTransportNumber;
     @BindView(R.id.tvPlate)
     @Pattern(message = "Voer een geldig kenteken in!", regex = "[A-Za-z0-9]{1,3}-[A-Za-z0-9]{1,3}-[A-Za-z0-9]{1,3}")
-    EditText tvTransPlate;
-    @BindView(R.id.tvNr)
-    EditText tvTransNr;
-    @BindView(R.id.tvNaar)
+    EditText tvPlate;
+    @BindView(R.id.tvOrigin)
     @Length(min = 2, message = "Dit veld is verplicht")
-    EditText tvTransToo;
-    @BindView(R.id.tvVan)
+    EditText tvOrigin;
+    @BindView(R.id.tvDestination)
     @Length(min = 2, message = "Dit veld is verplicht")
-    EditText tvTransFrom;
-    @BindView(R.id.tvLease)
-    @Length(min = 2, message = "Dit veld is verplicht")
-    EditText tvTransCompany;
+    EditText tvDestination;
 
     @OnClick(R.id.tvDate)
     public void test(View view) {
@@ -60,15 +60,15 @@ public class NewActivity extends AppCompatActivity implements Validator.Validati
     DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-            tvTransDate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+            tvDate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
         }
     };
 
+    private Calendar calendar = Calendar.getInstance();
     private DatabaseReference mTransportReference;
-
-    String id;
-    Transport transport;
-    Validator validator;
+    private String id;
+    private Transport transport;
+    private Validator validator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,9 +76,8 @@ public class NewActivity extends AppCompatActivity implements Validator.Validati
         setContentView(R.layout.activity_new);
         ButterKnife.bind(this);
 
-        AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+        adView.loadAd(adRequest);
 
         validator = new Validator(this);
         validator.setValidationListener(this);
@@ -87,26 +86,15 @@ public class NewActivity extends AppCompatActivity implements Validator.Validati
         mTransportReference = mFirebaseDatabase.getReference().child("transports")
                 .child(MainActivity.firebaseUser.getUid());
 
-        id = getIntent().getStringExtra("id");
-        if (id != null) {
-            setTitle("Rit aanpassen");
-            mTransportReference.child(id).addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    transport = dataSnapshot.getValue(Transport.class);
-                    tvTransDate.setText(transport.getTransDate());
-                    tvTransCompany.setText(transport.getTransCompany());
-                    tvTransNr.setText(transport.getTransNr());
-                    tvTransPlate.setText(transport.getTransPlate());
-                    tvTransFrom.setText(transport.getTransFrom());
-                    tvTransToo.setText(transport.getTransToo());
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-                    Toast.makeText(NewActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            });
+        if (getIntent().getSerializableExtra("transport") != null){
+            transport = (Transport) getIntent().getSerializableExtra("transport");
+            id = transport.getId();
+            tvDate.setText(transport.getDate());
+            tvCompany.setText(transport.getCompany());
+            tvTransportNumber.setText(transport.getTransportNumber());
+            tvPlate.setText(transport.getPlate());
+            tvOrigin.setText(transport.getOrigin());
+            tvDestination.setText(transport.getDestination());
         } else {
             transport = new Transport();
         }
@@ -114,16 +102,12 @@ public class NewActivity extends AppCompatActivity implements Validator.Validati
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_new, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
             case R.id.action_submit:
                 validator.validate();
@@ -140,12 +124,13 @@ public class NewActivity extends AppCompatActivity implements Validator.Validati
             key = id;
         }
         transport.setId(key);
-        transport.setTransDate(tvTransDate.getText().toString());
-        transport.setTransCompany(tvTransCompany.getText().toString());
-        transport.setTransNr(tvTransNr.getText().toString());
-        transport.setTransPlate(tvTransPlate.getText().toString());
-        transport.setTransFrom(tvTransFrom.getText().toString());
-        transport.setTransToo(tvTransToo.getText().toString());
+        transport.setDate(tvDate.getText().toString());
+        transport.setCompany(tvCompany.getText().toString());
+        transport.setTransportNumber(tvTransportNumber.getText().toString());
+        transport.setPlate(tvPlate.getText().toString());
+        transport.setOrigin(tvOrigin.getText().toString());
+        transport.setDestination(tvDestination.getText().toString());
+
         mTransportReference.child(key).setValue(transport);
         finish();
     }

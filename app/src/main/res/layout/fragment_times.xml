@@ -1,0 +1,169 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.reijn.easydrive.Fragments.TimeFragment">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/startTimeWrap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/startTime"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="false"
+            android:hint="Starttijd chauffeur" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/arrivalOriginWrap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/startAdressWrap">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/arrivalOrigin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="false"
+            android:hint="Aankomsttijd afhaaladres" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/departureOriginWrap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/arrivalOriginWrap">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/departureOrigin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="false"
+            android:hint="Vertrektijd afhaaladres" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/arrivalDestinationWrap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/departureOriginWrap">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/arrivalDestination"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="false"
+            android:hint="Aankomsttijd afleveradres" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/keysTimeWrap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/arrivalDestinationWrap">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/keysTime"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="false"
+            android:hint="Sleutels afgegeven om" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/startAdressWrap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/keysTimeWrap">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/startAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Gestart vanaf"
+            android:inputType="textCapWords" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/keystooWrap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/arrivalDestinationWrap"
+        android:layout_toEndOf="@+id/keysTimeWrap">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/keysToo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Sleutels afgegeven aan"
+            android:inputType="textCapWords" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Switch
+        android:id="@+id/sSecondTransport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/startAdressWrap"
+        android:layout_below="@+id/keystooWrap"
+        android:text="Vervolgtransport?" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tvFinalStationWrap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/sSecondTransport">
+
+        <EditText
+            android:id="@+id/tvFinalStation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Geëindigd op afleveradres/station"
+            android:inputType="textCapWords" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tvFinalAdressWrap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/sSecondTransport">
+
+        <EditText
+            android:id="@+id/tvFinalAdress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Eindadres rit"
+            android:inputType="textCapWords" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tvFinalTimeWrap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tvFinalStationWrap">
+
+        <EditText
+            android:id="@+id/tvFinalTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="false"
+            android:hint="Eindtijd chauffeur"
+            android:inputType="textCapWords" />
+    </android.support.design.widget.TextInputLayout>
+
+</RelativeLayout>
