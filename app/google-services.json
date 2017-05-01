@@ -15,11 +15,19 @@
       },
       "oauth_client": [
         {
+          "client_id": "528892304935-27fpkkkkkaqfcdl2heeapl6l11bq6cgo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.reijn.easydrive",
+            "certificate_hash": "b921689aada27a5337e8383e961303881be69a78"
+          }
+        },
+        {
           "client_id": "528892304935-eroq735rohpaobc3srfep5i3f0pd24mn.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.reijn.easydrive",
-            "certificate_hash": "B3CD9F45BA92C5B5017E97A6B225EFDEC87D5BB3"
+            "certificate_hash": "b3cd9f45ba92c5b5017e97a6b225efdec87d5bb3"
           }
         },
         {

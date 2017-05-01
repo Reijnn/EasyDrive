@@ -10,8 +10,6 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.mobsandgeeks.saripaar.ValidationError;
@@ -27,8 +25,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class NewActivity extends AppCompatActivity implements Validator.ValidationListener {
-    @BindView(R.id.adView)
-    AdView adView;
     @BindView(R.id.tvDate)
     @Pattern(message = "Voer een geldige datum in!", regex = "^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)(?:0?[1,3-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$")
     EditText tvDate;
@@ -46,6 +42,17 @@ public class NewActivity extends AppCompatActivity implements Validator.Validati
     @BindView(R.id.tvDestination)
     @Length(min = 2, message = "Dit veld is verplicht")
     EditText tvDestination;
+    DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+            tvDate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+        }
+    };
+    private Calendar calendar = Calendar.getInstance();
+    private DatabaseReference mTransportReference;
+    private String id;
+    private Transport transport;
+    private Validator validator;
 
     @OnClick(R.id.tvDate)
     public void test(View view) {
@@ -53,27 +60,11 @@ public class NewActivity extends AppCompatActivity implements Validator.Validati
 
     }
 
-    DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener() {
-        @Override
-        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-            tvDate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
-        }
-    };
-
-    private Calendar calendar = Calendar.getInstance();
-    private DatabaseReference mTransportReference;
-    private String id;
-    private Transport transport;
-    private Validator validator;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new);
         ButterKnife.bind(this);
-
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
 
         validator = new Validator(this);
         validator.setValidationListener(this);

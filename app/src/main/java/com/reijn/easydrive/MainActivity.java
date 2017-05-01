@@ -31,18 +31,16 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity {
 
     private static final int RC_SIGN_IN = 1;
-
+    public static FirebaseUser firebaseUser;
     @BindView(R.id.listView)
     ListView listView;
     @BindView(R.id.fab)
     FloatingActionButton fab;
-
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mTransportReference;
     private FirebaseListAdapter adapter;
-    public static FirebaseUser firebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -170,6 +168,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        adapter.cleanup();
+        //adapter.cleanup();
     }
 }
